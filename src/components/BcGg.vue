@@ -19,7 +19,7 @@ nextTick(() => {
 
 
 watch(() => props.updateMap, () => {
-  props.mapArr.forEach((item: any, index: number) => {
+  props?.mapArr?.forEach((item: any, index: number) => {
     item.forEach((_item: any, _index: number) => {
       if (_item === 1) {
         ctx.value.fillStyle = props.blockColor;

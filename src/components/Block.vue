@@ -22,7 +22,7 @@ let t = 0;
 
 // 监听用户点击 向左/向右/旋转
 watch(() => props.operationBlock, (i, o) => {
-  operationBlock(props.operationBlock)
+  operationBlock()
 })
 
 // 判断方块是否可以 向左/向右移动
@@ -44,7 +44,7 @@ const blockLocation = (direct: string) => {
 
 // 操作方块
 const operationBlock = async () => {
-  const location = await blockLocation(props.operationBlock)
+  const location = await blockLocation(String(props.operationBlock))
 
   block.forEach((i: any, l: number) => {
     i.forEach((j: any) => {
@@ -68,7 +68,7 @@ const initBlockCanvas = () => {
 // 获取新方块 new_block
 const drawNewBlock = () => {
   ctx.value.fillStyle = getBlockColor();
-  emit('blockColor', getBlockColor())
+  emit('blockColor', String(getBlockColor()))
   block = JSON.parse(JSON.stringify(getNewBlock()));
   blockNum += 1;
   console.log(block)
